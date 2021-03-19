@@ -25,6 +25,7 @@ public class DemoTest extends BaseTest {
 
     {
         driver = initDriver();  //initialize the driver before running actual test
+        driver.manage().window().maximize();
         //create an object of the "TraveHomePage" class
         travelHomePage = new TravelHomePage(driver);
     }

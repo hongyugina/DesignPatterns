@@ -10,9 +10,9 @@ import java.util.List;
 
 public abstract class AbstractComponent {
 
-
-    WebElement sectionElement;
     WebDriver driver;
+    WebElement sectionElement;
+
 
 
 

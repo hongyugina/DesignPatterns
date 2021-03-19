@@ -15,8 +15,10 @@ public class TravelHomePage {
     By footerSectionElement =  By.id("traveller-home");  //footer section object
 
     By headerSectionElement = By.id("buttons");  //header section object
+	
+	By bookingSectionElement = By.id("flightSearchContainer");     //locates the section that includes one-way/roundtrip/multitrip
 
-    SearchFlightAvail searchFltAvailability;  //booking section object for OneWay, RoundTrip and MultiTrip by returning the Interface Type for code re-usability.
+    SearchFlightAvail searchSelectedTrip;  // Hold the OneWay object or RoundTrip object or MultiTrip object
 
 
 
@@ -33,7 +35,6 @@ public class TravelHomePage {
     {
         driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 
-        driver.manage().window().maximize();
     }
 
 
@@ -55,12 +56,12 @@ public class TravelHomePage {
     public void setBookingStrategy(String tripType)
     {
 
-   //below two lines to use "Strategy design Pattern to call "createStrategy()" method to create an object of tripType (i.e. Round Trip or MultiTrip)
-        StrategyFactory strategyFactory = new StrategyFactory(driver);
-        SearchFlightAvail search = strategyFactory.createStrategy(tripType);
+   //below two lines to use "Strategy design Pattern to call "selectTripType()" method to select an object of tripType (i.e. Round Trip or MultiTrip)
+        StrategyFactory strategyFactory = new StrategyFactory(driver, bookingSectionElement);
+        SearchFlightAvail selectedTrip = strategyFactory.selectTripType(tripType);
 
   //Use SRP to create searchFltAvailability object so that you can use it to invoke the "checkAvailability" method defined in our Interface
-        this.searchFltAvailability = search; //SearchFlightAvail object is created.
+        this.searchSelectedTrip = selectedTrip; //SearchFlightAvail object is created.
 
     }
 
@@ -68,15 +69,16 @@ public class TravelHomePage {
     public void checkAvail(HashMap<String,String> originDest)
     {
        //call and implement the checkAvailability method defined in our Interface based on the "searchFltAvailability" object passed (i.e. either RoundTrip or MultiTrip)
-        searchFltAvailability.checkAvailability(originDest);
+        this.searchSelectedTrip.checkAvailability(originDest);
     }
 
-
+   /*
     public String getTitle()
 
     {
         System.out.println(("This is test."));
         return driver.getTitle();
     }
+   */
 
 }
