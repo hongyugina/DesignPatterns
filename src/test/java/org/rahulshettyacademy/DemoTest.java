@@ -57,11 +57,9 @@ public class DemoTest extends BaseTest {
 
         //System.out.println(travelHomePage.getTitle());
 
-       //travelHomePage.setBookingStrategy(new MultiTrip(driver,bookingSection)); //create an object for MultiTrip
-       //travelHomePage.setBookingStrategy(new RoundTrip(driver,bookingSection));  //create an object for RoundTrip
 
-       travelHomePage.tripBooking("multitrip", originDestination); //create an object for MultiTrip
-       //travelHomePage.setBookingStrategy("roundtrip"); //create an object for MultiTrip
+       //travelHomePage.tripBooking("multitrip", originDestination); //create an object for MultiTrip with test data being passed
+       travelHomePage.tripBooking("roundtrip", originDestination); //create an object for MultiTrip with test data being passed
 
       // travelHomePage.checkAvail(originDestination);  //capture user entered origin and destination
 
