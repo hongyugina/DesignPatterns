@@ -58,8 +58,8 @@ public class DemoTest extends BaseTest {
         //System.out.println(travelHomePage.getTitle());
 
 
-       //travelHomePage.tripBooking("multitrip"); //create an object for MultiTrip
-       travelHomePage.tripBooking("roundtrip"); //create an object for Round Trip
+       travelHomePage.tripBooking("multitrip"); //create an object for MultiTrip
+       //travelHomePage.tripBooking("roundtrip"); //create an object for Round Trip
        travelHomePage.checkAvail(originDestination);  //capture user entered origin and destination
 
 
