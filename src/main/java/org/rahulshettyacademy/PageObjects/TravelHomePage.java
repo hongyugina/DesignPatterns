@@ -53,27 +53,22 @@ public class TravelHomePage {
     }
 
 //Use "Strategy Design Pattern" to create a "Main Booking Section" object of either OneWay or RoundTrip or MultiTrip
-    public void tripBooking(String tripType, HashMap<String,String> originDest)
+    public void tripBooking(String tripType)
     {
 
    //below two lines to use "Strategy design Pattern to call "selectTripType()" method to select an object of tripType (i.e. Round Trip or MultiTrip)
         BookingSection bookTrip = new BookingSection(driver, bookingSectionElement);
-        SearchFlightAvail selectedTrip = bookTrip.selectTripType(tripType);
-		selectedTrip.checkAvailability(originDest);
-
-  //Use SRP to create searchFltAvailability object so that you can use it to invoke the "checkAvailability" method defined in our Interface
-       // this.searchSelectedTrip = selectedTrip; //SearchFlightAvail object is created.
-
+        searchSelectedTrip = bookTrip.selectTripType(tripType);
     }
 
-/*
+
     public void checkAvail(HashMap<String,String> originDest)
     {
        //call and implement the checkAvailability method defined in our Interface based on the "searchFltAvailability" object passed (i.e. either RoundTrip or MultiTrip)
         this.searchSelectedTrip.checkAvailability(originDest);
     }
 	
-	*/
+
 
    /*
     public String getTitle()
