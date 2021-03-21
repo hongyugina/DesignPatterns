@@ -5,28 +5,28 @@ import org.openqa.selenium.WebDriver;
 import org.rahulshettyacademy.PageComponents.MultiTrip;
 import org.rahulshettyacademy.PageComponents.RoundTrip;
 
-public class StrategyFactory {
+public class BookingSection {
 
     WebDriver driver;
-	By bookingSectionElement;  //locates the section that includes one-way/roundtrip/multitrip
+	By bookingSectionElement;
 
    // By bookingSection =By.id("flightSearchContainer");     //this is the section that includes one-way/roundtrip/multitrip
 
-    public StrategyFactory(WebDriver driver, By bookingSectionElement) {
+    public BookingSection(WebDriver driver, By bookingSectionElement) {
         this.driver = driver;
 		this.bookingSectionElement = bookingSectionElement;
     }
 
-    public SearchFlightAvail selectTripType(String strategyType)
+    public SearchFlightAvail selectTripType(String tripType)
 
     {
-        if (strategyType.equalsIgnoreCase("multitrip"))
+        if (tripType.equalsIgnoreCase("multitrip"))
         {
 
             return new MultiTrip(driver, bookingSectionElement);
         }
 
-        if (strategyType.equalsIgnoreCase("roundtrip"))
+        if (tripType.equalsIgnoreCase("roundtrip"))
         {
             return new RoundTrip(driver, bookingSectionElement);
         }

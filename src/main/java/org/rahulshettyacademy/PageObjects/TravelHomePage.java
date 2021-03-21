@@ -2,8 +2,8 @@ package org.rahulshettyacademy.PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.rahulshettyacademy.AbstractComponents.BookingSection;
 import org.rahulshettyacademy.AbstractComponents.SearchFlightAvail;
-import org.rahulshettyacademy.AbstractComponents.StrategyFactory;
 import org.rahulshettyacademy.PageComponents.FooterNavigation;
 import org.rahulshettyacademy.PageComponents.NavigationBar;
 
@@ -52,13 +52,13 @@ public class TravelHomePage {
 
     }
 
-//Use "Strategy Design Pattern" to create an object of either OneWay or RoundTrip or MultiTrip
+//Use "Strategy Design Pattern" to create a "Main Booking Section" object of either OneWay or RoundTrip or MultiTrip
     public void setBookingStrategy(String tripType)
     {
 
    //below two lines to use "Strategy design Pattern to call "selectTripType()" method to select an object of tripType (i.e. Round Trip or MultiTrip)
-        StrategyFactory strategyFactory = new StrategyFactory(driver, bookingSectionElement);
-        SearchFlightAvail selectedTrip = strategyFactory.selectTripType(tripType);
+        BookingSection bookTrip = new BookingSection(driver, bookingSectionElement);
+        SearchFlightAvail selectedTrip = bookTrip.selectTripType(tripType);
 
   //Use SRP to create searchFltAvailability object so that you can use it to invoke the "checkAvailability" method defined in our Interface
         this.searchSelectedTrip = selectedTrip; //SearchFlightAvail object is created.
