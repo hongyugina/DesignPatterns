@@ -36,7 +36,7 @@ public class MultiTrip extends AbstractComponent implements SearchFlightAvail {
 
         waitForElementToDisappear(modalPopUp);  //wait until popup message is gone
 
-        //step 2. below line is to continue/accept to execute any actual methods of the current class (i.e. "MultiTrip.java" class after the above pre-requisite is done.
+        //step 2. below line is to accept/continue to execute any actual methods of the current class (i.e. "MultiTrip.java" class after the above pre-requisite is done.
         consumer.accept(this);
 
         //step 3.  below line is the "tear down" (post-requisite) step
